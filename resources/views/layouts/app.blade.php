@@ -29,7 +29,7 @@
 
             <!-- Page Content -->
             <main>
-                {{ $slot }}
+            <!-- Aquí va el contenido principal de la página -->
             </main>
         </div>
     </body>

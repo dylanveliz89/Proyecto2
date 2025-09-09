@@ -5,7 +5,8 @@
     <title>Macro Proveedores</title>
     <style>
         body {
-            background: url('/fondo.png') center center / cover no-repeat fixed;
+            /* Cambia el fondo aquí, solo pon el nombre del archivo */
+            background: url('/fondo1.jpg') center center / cover no-repeat fixed;
             font-family: Arial, sans-serif;
             min-height: 100vh;
             margin: 0;

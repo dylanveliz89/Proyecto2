@@ -29,3 +29,8 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+// Rutas CRUD para usuarios solo para admin
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::resource('users', App\Http\Controllers\UsersController::class);
+});
