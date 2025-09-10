@@ -16,7 +16,11 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
+<<<<<<< HEAD
                     @if(auth()->check())
+=======
+                    @if(auth()->check() && auth()->user()->is_admin)
+>>>>>>> caa8d36bba4986cf2fd7fcfe2dbb926f7809b941
                         <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
                             {{ __('Gestión de Usuarios') }}
                         </x-nav-link>
@@ -77,7 +81,11 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
 
+<<<<<<< HEAD
             @if(auth()->check())
+=======
+            @if(auth()->check() && auth()->user()->is_admin)
+>>>>>>> caa8d36bba4986cf2fd7fcfe2dbb926f7809b941
                 <x-responsive-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
                     {{ __('Gestión de Usuarios') }}
                 </x-responsive-nav-link>

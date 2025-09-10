@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<<<<<<< HEAD
 <style>
     .edit-user-container {
         background: #fff;
@@ -92,6 +93,14 @@
         <div class="edit-user-error">{{ session('error') }}</div>
     @endif
     <form method="POST" action="{{ route('users.update', $user->id) }}" class="edit-user-form">
+=======
+<div class="container">
+    <h1>Editar Usuario</h1>
+    @if(session('success'))
+        <div style="color: green; margin-bottom: 10px;">{{ session('success') }}</div>
+    @endif
+    <form method="POST" action="{{ route('users.update', $user->id) }}">
+>>>>>>> caa8d36bba4986cf2fd7fcfe2dbb926f7809b941
         @csrf
         @method('PUT')
         <div>
@@ -106,10 +115,15 @@
             <label>Contraseña (dejar vacío para no cambiar):</label>
             <input type="password" name="password">
         </div>
+<<<<<<< HEAD
         <div style="display: flex; gap: 8px; align-items: center;">
             <button type="submit">Actualizar</button>
             <a href="{{ route('users.index') }}">Volver</a>
         </div>
+=======
+        <button type="submit">Actualizar</button>
+        <a href="{{ route('users.index') }}">Volver</a>
+>>>>>>> caa8d36bba4986cf2fd7fcfe2dbb926f7809b941
     </form>
 </div>
 @endsection

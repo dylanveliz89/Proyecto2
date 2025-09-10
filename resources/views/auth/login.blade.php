@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <style>
     body {
         background: url('/F0ndo L.png') no-repeat center center fixed;
@@ -5,6 +6,8 @@
         min-height: 100vh;
     }
 </style>
+=======
+>>>>>>> caa8d36bba4986cf2fd7fcfe2dbb926f7809b941
 <x-guest-layout>
     <div class="text-center mb-10">
         <a href="/">
@@ -31,6 +34,10 @@
                 <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-blue-600 shadow-sm focus:ring-blue-500" name="remember">
                 <span class="ml-2 text-sm text-gray-700">{{ __('Recordarme') }}</span>
             </label>
+<<<<<<< HEAD
+=======
+            <!-- Enlace de '¿Olvidaste tu contraseña?' eliminado -->
+>>>>>>> caa8d36bba4986cf2fd7fcfe2dbb926f7809b941
         </div>
         <x-primary-button class="w-full">
             {{ __('Ingresar') }}

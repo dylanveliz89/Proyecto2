@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<<<<<<< HEAD
 <style>
     .usuarios-container {
         background: #fff;
@@ -118,11 +119,23 @@
         <div class="usuarios-success">{{ session('success') }}</div>
     @endif
     <form method="GET" action="{{ route('users.index') }}" class="usuarios-form">
+=======
+<div class="container">
+    <h1>Lista de Usuarios</h1>
+    @if(session('success'))
+        <div style="color: green; margin-bottom: 10px;">{{ session('success') }}</div>
+    @endif
+    <form method="GET" action="{{ route('users.index') }}" class="mb-3">
+>>>>>>> caa8d36bba4986cf2fd7fcfe2dbb926f7809b941
         <input type="text" name="search" placeholder="Buscar por nombre" value="{{ request('search') }}">
         <button type="submit">Buscar</button>
         <a href="{{ route('users.create') }}">Crear Usuario</a>
     </form>
+<<<<<<< HEAD
     <table class="usuarios-table">
+=======
+    <table border="1" cellpadding="8">
+>>>>>>> caa8d36bba4986cf2fd7fcfe2dbb926f7809b941
         <thead>
             <tr>
                 <th>ID</th>
@@ -132,6 +145,7 @@
             </tr>
         </thead>
         <tbody>
+<<<<<<< HEAD
             @if($users->count() == 0)
                 <tr>
                     <td colspan="4" style="text-align:center; color:gray;">No hay usuarios registrados.</td>
@@ -153,6 +167,23 @@
                 </tr>
                 @endforeach
             @endif
+=======
+            @foreach($users as $user)
+            <tr>
+                <td>{{ $user->id }}</td>
+                <td>{{ $user->name }}</td>
+                <td>{{ $user->email }}</td>
+                <td>
+                    <a href="{{ route('users.edit', $user->id) }}">Editar</a>
+                    <form action="{{ route('users.destroy', $user->id) }}" method="POST" style="display:inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" onclick="return confirm('¿Seguro que quieres eliminar?')">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
+            @endforeach
+>>>>>>> caa8d36bba4986cf2fd7fcfe2dbb926f7809b941
         </tbody>
     </table>
 </div>
