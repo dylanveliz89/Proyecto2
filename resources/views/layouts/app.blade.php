@@ -29,11 +29,7 @@
 
             <!-- Page Content -->
             <main>
-<<<<<<< HEAD
                 @yield('content')
-=======
-            <!-- Aquí va el contenido principal de la página -->
->>>>>>> caa8d36bba4986cf2fd7fcfe2dbb926f7809b941
             </main>
         </div>
     </body>
