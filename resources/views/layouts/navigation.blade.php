@@ -16,11 +16,7 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
-<<<<<<< HEAD
                     @if(auth()->check())
-=======
-                    @if(auth()->check() && auth()->user()->is_admin)
->>>>>>> caa8d36bba4986cf2fd7fcfe2dbb926f7809b941
                         <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
                             {{ __('Gestión de Usuarios') }}
                         </x-nav-link>
@@ -52,7 +48,7 @@
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <button type="submit" class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                                {{ __('Log Out') }}
+                                Log Out
                             </button>
                         </form>
                     </x-slot>
@@ -78,11 +74,7 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
 
-<<<<<<< HEAD
             @if(auth()->check())
-=======
-            @if(auth()->check() && auth()->user()->is_admin)
->>>>>>> caa8d36bba4986cf2fd7fcfe2dbb926f7809b941
                 <x-responsive-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
                     {{ __('Gestión de Usuarios') }}
                 </x-responsive-nav-link>
@@ -105,7 +97,7 @@
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <button type="submit" class="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
-                        {{ __('Log Out') }}
+                        Log Out
                     </button>
                 </form>
             </div>
