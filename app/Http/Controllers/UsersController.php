@@ -27,10 +27,18 @@ class UsersController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email',
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
             'password' => 'required|min:6',
         ]);
+        // No mostrar información en blanco
+        if (empty($request->name) || empty($request->email) || empty($request->password)) {
+            return back()->with('error', 'Todos los campos son obligatorios.')->withInput();
+        }
+        // Validar usuario existente
+        if (\App\Models\User::where('email', $request->email)->exists()) {
+            return back()->with('error', 'Usuario existente')->withInput();
+        }
         $user = new \App\Models\User();
         $user->name = $request->name;
         $user->email = $request->email;
@@ -49,16 +57,15 @@ class UsersController extends Controller
     {
         $user = \App\Models\User::findOrFail($id);
         $request->validate([
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email,' . $id,
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255|unique:users,email,' . $id,
         ]);
         $user->name = $request->name;
         $user->email = $request->email;
-        // Si no hay contraseña nueva, no actualiza y muestra error
-        if (!$request->password) {
-            return redirect()->back()->with('error', 'Debes ingresar una nueva contraseña para actualizar.');
+        // Solo actualiza la contraseña si se proporciona una nueva y no está vacía
+        if ($request->filled('password') && !empty($request->password)) {
+            $user->password = bcrypt($request->password);
         }
-        $user->password = bcrypt($request->password);
         $user->save();
         return redirect()->route('users.index')->with('success', 'Usuario actualizado correctamente');
     }
