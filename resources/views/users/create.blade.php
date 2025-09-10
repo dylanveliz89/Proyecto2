@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Usuario</title>
+    <style>
     .create-user-container {
         background: #fff;
         border-radius: 12px;
@@ -82,7 +86,9 @@
             padding: 12px;
         }
     }
-</style>
+    </style>
+</head>
+<body>
 <div class="create-user-container">
     <h1>Crear Usuario</h1>
     @if(session('success'))
@@ -114,4 +120,6 @@
         </div>
     </form>
 </div>
+</body>
+</html>
 @endsection
