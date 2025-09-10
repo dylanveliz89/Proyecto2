@@ -59,13 +59,15 @@ class UsersController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255|unique:users,email,' . $id,
+            'password' => 'required|min:6',
         ]);
         $user->name = $request->name;
         $user->email = $request->email;
-        // Solo actualiza la contraseña si se proporciona una nueva y no está vacía
-        if ($request->filled('password') && !empty($request->password)) {
-            $user->password = bcrypt($request->password);
+        // Requiere nueva contraseña para actualizar
+        if (empty($request->password)) {
+            return back()->with('error', 'Debes ingresar una nueva contraseña para actualizar el usuario.')->withInput();
         }
+        $user->password = bcrypt($request->password);
         $user->save();
         return redirect()->route('users.index')->with('success', 'Usuario actualizado correctamente');
     }
